@@ -1,0 +1,3 @@
+ch.admin.bit.jeap.crypto.spring.JeapCryptoMetricsAutoConfiguration
+ch.admin.bit.jeap.crypto.spring.JeapCryptoNoopValidationAutoConfiguration
+ch.admin.bit.jeap.crypto.spring.JeapCryptoCommonAutoConfiguration

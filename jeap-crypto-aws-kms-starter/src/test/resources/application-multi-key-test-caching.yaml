@@ -1,0 +1,16 @@
+jeap:
+  crypto:
+    awskms:
+      default-encryption-key-cache-expiry-duration: 60s
+      default-decryption-key-cache-expiry-duration: 60s
+      encryption-key-max-cache-size: 100
+      decryption-key-max-cache-size: 100
+      keys:
+        gamesDb:
+          key-arn: "${test-key-arn}"
+          encryption-cache-expiry-duration: 3s
+          decryption-cache-expiry-duration: 3s
+        gameReviewObjectStore:
+          key-arn: "${second-test-key-arn}"
+          # uses default-encryption-key-cache-expiry-duration
+          # uses default-decryption-key-cache-expiry-duration

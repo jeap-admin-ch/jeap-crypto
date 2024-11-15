@@ -1,0 +1,10 @@
+jeap:
+  crypto:
+    awskms:
+      default-escrow-key:
+        key-type: none
+      keys:
+        aws-key:
+          escrow-key:
+            key-type: NONE
+          key-arn: "${test-key-arn}"
