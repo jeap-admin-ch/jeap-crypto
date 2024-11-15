@@ -1,0 +1,10 @@
+jeap:
+  crypto:
+    vault:
+      default-secret-engine-path: "transit/${jeap.vault.system-name}"
+      keys:
+        gamesDb:
+          key-name: "testapp-database-key"
+        gameReviewObjectStore:
+          secret-engine-path: "transit/otherapp"
+          key-name: "otherapp-s3-key"

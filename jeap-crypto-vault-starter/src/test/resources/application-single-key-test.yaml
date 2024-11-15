@@ -1,0 +1,7 @@
+jeap:
+  crypto:
+    vault:
+      # default-secret-engine-path is not set in this test, to test if defaulting it to transit/${jeap.vault.system-name} works
+      keys:
+        the-one:
+          key-name: "testapp-database-key"

@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    vault:
+      enabled: true
+      fail-fast: true
+jeap:
+  vault:
+    url: http://172.17.0.1:${vault.testcontainer.exposed-port}
+    system-name: jeap
+    app-role:
+      # From docker/vault-test-config.sh
+      role-id: "9999-8888-7777"
+      secret-id: "1234-5678-9012-3456"
+  crypto:
+    vault:
+      keys:
+        vault-key:
+          key-name: "testapp-database-key"

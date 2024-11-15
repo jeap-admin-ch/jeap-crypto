@@ -1,0 +1,7 @@
+jeap:
+  crypto:
+    disabledForTestEnv: true
+    awskms:
+      keys:
+        the-one:
+          key-arn: "${test-key-arn}"

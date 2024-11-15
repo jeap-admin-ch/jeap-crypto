@@ -1,0 +1,18 @@
+jeap:
+  crypto:
+    vault:
+      # default-secret-engine-path is automatically set to transit/${jeap.vault.system-name}
+      default-encryption-key-cache-expiry-duration: 6s
+      default-decryption-key-cache-expiry-duration: 6s
+      encryption-key-max-cache-size: 100
+      decryption-key-max-cache-size: 100
+      keys:
+        gamesDb:
+          key-name: "testapp-database-key"
+          encryption-cache-expiry-duration: 3s
+          decryption-cache-expiry-duration: 3s
+        gameReviewObjectStore:
+          secret-engine-path: "transit/otherapp"
+          key-name: "otherapp-s3-key"
+          # uses default-encryption-key-cache-expiry-duration from jeap.crypto.vault
+          # uses default-decryption-key-cache-expiry-duration from jeap.crypto.vault

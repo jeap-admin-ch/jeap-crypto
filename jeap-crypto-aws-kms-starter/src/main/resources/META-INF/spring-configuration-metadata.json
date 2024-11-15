@@ -1,0 +1,9 @@
+{
+  "properties": {
+    "jeap.crypto.awskms.enabled": {
+      "type": "boolean",
+      "description": "Flag to enable/disable AWS Key Management Service (KMS) for cryptographic operations.",
+      "defaultValue": true
+    }
+  }
+}
