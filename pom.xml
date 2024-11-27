@@ -34,7 +34,7 @@
 
     <properties>
         <!-- Used for integration testing with the starters -->
-        <jeap-spring-boot-vault-starter.version>17.9.1</jeap-spring-boot-vault-starter.version>
+        <jeap-spring-boot-vault-starter.version>17.13.0</jeap-spring-boot-vault-starter.version>
         <testcontainers.version>1.19.8</testcontainers.version>
         <ryuk.container.image>testcontainers/ryuk:0.11.0</ryuk.container.image>
         <!-- Disable unhelpful sonar warnings for mutable field values -->
