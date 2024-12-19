@@ -19,7 +19,7 @@ Apache License, Version 2.0
  * jeap-crypto-spring - [ch.admin.bit.jeap:jeap-crypto-spring](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-spring)
  * jeap-crypto-vault - [ch.admin.bit.jeap:jeap-crypto-vault](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-vault)
  * jeap-crypto-vault-starter - [ch.admin.bit.jeap:jeap-crypto-vault-starter](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-vault-starter)
- * jeap-spring-boot-vault-starter - [ch.admin.bit.jeap:jeap-spring-boot-vault-starter](https://github.com/jeap-admin-ch/jeap-spring-boot-starters/jeap-spring-boot-vault-starter)
+ * jeap-spring-boot-vault-starter - [ch.admin.bit.jeap:jeap-spring-boot-vault-starter](https://github.com/jeap-admin-ch/jeap-spring-boot-starters/tree/main/jeap-spring-boot-vault-starter)
  * ClassMate - [com.fasterxml:classmate](https://github.com/FasterXML/java-classmate)
  * Jackson-annotations - [com.fasterxml.jackson.core:jackson-annotations](https://github.com/FasterXML/jackson)
  * Jackson-core - [com.fasterxml.jackson.core:jackson-core](https://github.com/FasterXML/jackson-core)
