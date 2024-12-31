@@ -23,18 +23,18 @@
     </licenses>
 
     <artifactId>jeap-crypto</artifactId>
-    <version>3.7.0-SNAPSHOT</version>
+    <version>3.8.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <parent>
         <artifactId>jeap-internal-spring-boot-parent</artifactId>
         <groupId>ch.admin.bit.jeap</groupId>
-        <version>5.4.0</version>
+        <version>5.4.1</version>
     </parent>
 
     <properties>
         <!-- Used for integration testing with the starters -->
-        <jeap-spring-boot-vault-starter.version>17.13.0</jeap-spring-boot-vault-starter.version>
+        <jeap-spring-boot-vault-starter.version>17.14.0</jeap-spring-boot-vault-starter.version>
         <testcontainers.version>1.19.8</testcontainers.version>
         <ryuk.container.image>testcontainers/ryuk:0.11.0</ryuk.container.image>
         <!-- Disable unhelpful sonar warnings for mutable field values -->
