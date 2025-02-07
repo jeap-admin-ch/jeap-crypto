@@ -8,11 +8,6 @@ Third-party dependencies grouped by their license type (see [pom.xml](/pom.xml) 
 Apache License Version 2.0
 -------------------------------
 
- * Hibernate Commons Annotations - [org.hibernate.common:hibernate-commons-annotations](http://hibernate.org)
-
-Apache License, Version 2.0
--------------------------------
-
  * jeap-crypto-aws-kms - [ch.admin.bit.jeap:jeap-crypto-aws-kms](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-aws-kms)
  * jeap-crypto-aws-kms-starter - [ch.admin.bit.jeap:jeap-crypto-aws-kms-starter](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-aws-kms-starter)
  * jeap-crypto-core - [ch.admin.bit.jeap:jeap-crypto-core](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-core)
@@ -51,14 +46,15 @@ Apache License, Version 2.0
  * JSON Small and Fast Parser - [net.minidev:json-smart](https://urielch.github.io/)
  * Apache Commons Compress - [org.apache.commons:commons-compress](https://commons.apache.org/proper/commons-compress/)
  * Apache HttpClient - [org.apache.httpcomponents.client5:httpclient5](https://hc.apache.org/httpcomponents-client-5.4.x/5.4.1/httpclient5/)
- * Apache HttpComponents Core HTTP/1.1 - [org.apache.httpcomponents.core5:httpcore5](https://hc.apache.org/httpcomponents-core-5.3.x/5.3.1/httpcore5/)
- * Apache HttpComponents Core HTTP/2 - [org.apache.httpcomponents.core5:httpcore5-h2](https://hc.apache.org/httpcomponents-core-5.3.x/5.3.1/httpcore5-h2/)
+ * Apache HttpComponents Core HTTP/1.1 - [org.apache.httpcomponents.core5:httpcore5](https://hc.apache.org/httpcomponents-core-5.3.x/5.3.2/httpcore5/)
+ * Apache HttpComponents Core HTTP/2 - [org.apache.httpcomponents.core5:httpcore5-h2](https://hc.apache.org/httpcomponents-core-5.3.x/5.3.2/httpcore5-h2/)
  * Apache Log4j API - [org.apache.logging.log4j:log4j-api](https://logging.apache.org/log4j/2.x/log4j/log4j-api/)
  * Log4j API to SLF4J Adapter - [org.apache.logging.log4j:log4j-to-slf4j](https://logging.apache.org/log4j/2.x/log4j/log4j-to-slf4j/)
  * tomcat-embed-el - [org.apache.tomcat.embed:tomcat-embed-el](https://tomcat.apache.org/)
  * org.apiguardian:apiguardian-api - [org.apiguardian:apiguardian-api](https://github.com/apiguardian-team/apiguardian)
  * AssertJ Core - [org.assertj:assertj-core](https://assertj.github.io/doc/#assertj-core)
  * Awaitility - [org.awaitility:awaitility](http://awaitility.org)
+ * Hibernate Commons Annotations - [org.hibernate.common:hibernate-commons-annotations](http://hibernate.org)
  * Hibernate Validator Engine - [org.hibernate.validator:hibernate-validator](http://hibernate.org/validator/hibernate-validator)
  * JBoss Logging 3 - [org.jboss.logging:jboss-logging](http://www.jboss.org)
  * JetBrains Java Annotations - [org.jetbrains:annotations](https://github.com/JetBrains/java-annotations)
