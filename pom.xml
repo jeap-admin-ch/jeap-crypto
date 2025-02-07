@@ -36,6 +36,7 @@
     </parent>
 
     <properties>
+        <maven.javadoc.skip>false</maven.javadoc.skip>
         <!-- Used for integration testing with the starters -->
         <jeap-spring-boot-vault-starter.version>17.16.0</jeap-spring-boot-vault-starter.version>
         <testcontainers.version>1.19.8</testcontainers.version>
