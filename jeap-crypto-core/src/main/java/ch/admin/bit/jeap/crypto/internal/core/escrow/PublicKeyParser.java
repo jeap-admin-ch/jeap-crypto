@@ -1,7 +1,7 @@
 package ch.admin.bit.jeap.crypto.internal.core.escrow;
 
 import ch.admin.bit.jeap.crypto.api.CryptoException;
-import com.amazon.corretto.crypto.provider.AmazonCorrettoCryptoProvider;
+import ch.admin.bit.jeap.crypto.internal.core.jca.CryptoAdapter;
 import lombok.experimental.UtilityClass;
 
 import java.security.GeneralSecurityException;
@@ -21,7 +21,7 @@ public class PublicKeyParser {
                     .replace("-----END PUBLIC KEY-----", "");
 
             try {
-                KeyFactory kf = KeyFactory.getInstance("RSA", AmazonCorrettoCryptoProvider.INSTANCE);
+                KeyFactory kf = CryptoAdapter.getKeyFactoryInstance("RSA");
                 X509EncodedKeySpec keySpecX509 = new X509EncodedKeySpec(Base64.getDecoder().decode(publicKeyCleanedUp));
                 return kf.generatePublic(keySpecX509);
             } catch (GeneralSecurityException ex) {

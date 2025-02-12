@@ -1,20 +1,15 @@
 package ch.admin.bit.jeap.crypto.internal.core.escrow;
 
 import ch.admin.bit.jeap.crypto.api.CryptoException;
+import ch.admin.bit.jeap.crypto.internal.core.jca.CryptoAdapter;
 import ch.admin.bit.jeap.crypto.internal.core.model.DataKey;
 import ch.admin.bit.jeap.crypto.internal.core.model.EscrowDataKey;
-import com.amazon.corretto.crypto.provider.AmazonCorrettoCryptoProvider;
 
 import javax.crypto.Cipher;
 import java.security.GeneralSecurityException;
 import java.security.PublicKey;
 
 public class AsymmetricEscrowEncryptionService implements EscrowEncryptionService {
-
-    static {
-        AmazonCorrettoCryptoProvider.install();
-        AmazonCorrettoCryptoProvider.INSTANCE.assertHealthy();
-    }
 
     // See https://github.com/corretto/amazon-corretto-crypto-provider
     static final String RSA_TRANSFORMATION = "RSA/ECB/OAEPPadding";
@@ -34,7 +29,7 @@ public class AsymmetricEscrowEncryptionService implements EscrowEncryptionServic
     }
 
     private byte[] encrypt(byte[] plaintext, EscrowKeyType escrowKeyType, PublicKey escrowPublicKey) throws GeneralSecurityException {
-        Cipher cipher = Cipher.getInstance(transformation(escrowKeyType), AmazonCorrettoCryptoProvider.INSTANCE);
+        Cipher cipher = CryptoAdapter.createCipher(transformation(escrowKeyType));
         cipher.init(Cipher.ENCRYPT_MODE, escrowPublicKey);
         cipher.update(plaintext);
         return cipher.doFinal();

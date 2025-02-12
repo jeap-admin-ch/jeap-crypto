@@ -1,8 +1,8 @@
 package ch.admin.bit.jeap.crypto.internal.core.escrow;
 
+import ch.admin.bit.jeap.crypto.internal.core.jca.CryptoAdapter;
 import ch.admin.bit.jeap.crypto.internal.core.model.DataKey;
 import ch.admin.bit.jeap.crypto.internal.core.model.EscrowDataKey;
-import com.amazon.corretto.crypto.provider.AmazonCorrettoCryptoProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -60,7 +60,7 @@ class AsymmetricEscrowEncryptionServiceTest {
     }
 
     private String decrypt(EscrowDataKey escrowDataKey, PrivateKey privateKey) throws Exception {
-        Cipher cipher = Cipher.getInstance(AsymmetricEscrowEncryptionService.RSA_TRANSFORMATION, AmazonCorrettoCryptoProvider.INSTANCE);
+        Cipher cipher = CryptoAdapter.createCipher(AsymmetricEscrowEncryptionService.RSA_TRANSFORMATION);
         cipher.init(Cipher.DECRYPT_MODE, privateKey);
         cipher.update(escrowDataKey.ciphertext());
         return new String(cipher.doFinal(), UTF_8);
