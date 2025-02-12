@@ -204,6 +204,7 @@ MIT License
  * Duct Tape - [org.rnorth.duct-tape:duct-tape](https://github.com/rnorth/duct-tape)
  * JUL to SLF4J bridge - [org.slf4j:jul-to-slf4j](http://www.slf4j.org)
  * SLF4J API Module - [org.slf4j:slf4j-api](http://www.slf4j.org)
+ * SLF4J Simple Provider - [org.slf4j:slf4j-simple](http://www.slf4j.org)
  * Testcontainers :: JUnit Jupiter Extension - [org.testcontainers:junit-jupiter](https://java.testcontainers.org)
  * Testcontainers :: Localstack - [org.testcontainers:localstack](https://java.testcontainers.org)
  * Testcontainers Core - [org.testcontainers:testcontainers](https://java.testcontainers.org)
