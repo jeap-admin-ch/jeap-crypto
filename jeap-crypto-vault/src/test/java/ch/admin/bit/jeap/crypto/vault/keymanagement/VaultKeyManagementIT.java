@@ -53,7 +53,7 @@ class VaultKeyManagementIT {
 
     @DynamicPropertySource
     static void dynamicProperties(DynamicPropertyRegistry registry) {
-        registry.add("vault.testcontainer.exposed-port", () -> vaultContainer.getMappedPort(8200));
+        registry.add("jeap.vault.url", () -> "http://%s:%d".formatted(vaultContainer.getHost(), vaultContainer.getMappedPort(8200)));
     }
 
     @BeforeAll

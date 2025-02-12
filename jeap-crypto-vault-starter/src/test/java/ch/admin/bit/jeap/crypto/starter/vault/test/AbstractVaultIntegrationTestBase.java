@@ -35,7 +35,7 @@ abstract class AbstractVaultIntegrationTestBase {
 
     @DynamicPropertySource
     static void dynamicProperties(DynamicPropertyRegistry registry) {
-        registry.add("vault.testcontainer.exposed-port", () -> vault.getMappedPort(8200));
+        registry.add("jeap.vault.url", () -> "http://%s:%d".formatted(vault.getHost(), vault.getMappedPort(8200)));
     }
 
     @BeforeAll

@@ -3,7 +3,6 @@ spring.cloud.vault.fail-fast: true
 
 jeap:
   vault:
-    url: http://172.17.0.1:${vault.testcontainer.exposed-port}
     system-name: jeap
     app-role:
       role-id: "9999-8888-7777"

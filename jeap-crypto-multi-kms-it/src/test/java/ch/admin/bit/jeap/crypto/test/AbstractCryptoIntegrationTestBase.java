@@ -72,7 +72,7 @@ abstract class AbstractCryptoIntegrationTestBase {
         registry.add("jeap.crypto.awskms.endpoint", () -> localStack.getEndpointOverride(LocalStackContainer.Service.KMS));
         registry.add("test-key-arn", () -> testKeyArn);
         registry.add("second-test-key-arn", () -> secondTestKeyArn);
-        registry.add("vault.testcontainer.exposed-port", () -> vault.getMappedPort(8200));
+        registry.add("jeap.vault.url", () -> "http://%s:%d".formatted(vault.getHost(), vault.getMappedPort(8200)));
     }
 
     private static String createTestKey() {

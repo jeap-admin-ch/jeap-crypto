@@ -5,7 +5,6 @@ spring:
       fail-fast: true
 jeap:
   vault:
-    url: http://172.17.0.1:${vault.testcontainer.exposed-port}
     system-name: jeap
     app-role:
       # From docker/vault-test-config.sh
