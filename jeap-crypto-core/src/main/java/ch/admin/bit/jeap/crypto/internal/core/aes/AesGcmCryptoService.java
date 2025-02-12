@@ -10,18 +10,30 @@ import ch.admin.bit.jeap.crypto.internal.core.model.DataKeyPair;
 import ch.admin.bit.jeap.crypto.internal.core.model.EncryptedDataKey;
 import ch.admin.bit.jeap.crypto.internal.core.model.JeapCryptoContainer;
 import com.amazon.corretto.crypto.provider.AmazonCorrettoCryptoProvider;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.crypto.Cipher;
+import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.GeneralSecurityException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 
+@Slf4j
 public class AesGcmCryptoService implements KeyReferenceCryptoService {
+
+    static boolean correttoEnabled = false;
 
     static {
         AmazonCorrettoCryptoProvider.install();
-        AmazonCorrettoCryptoProvider.INSTANCE.assertHealthy();
+        try {
+            AmazonCorrettoCryptoProvider.INSTANCE.assertHealthy();
+            correttoEnabled = true;
+        } catch (Throwable t) {
+            correttoEnabled = false;
+        }
     }
 
     // 256bit key (AES-256)
@@ -43,6 +55,9 @@ public class AesGcmCryptoService implements KeyReferenceCryptoService {
                                JeapCryptoDataFormat dataFormat) {
         this.keyManagementService = keyManagementService;
         this.dataFormat = dataFormat;
+        if (!correttoEnabled) {
+            log.warn("Corretto cypto provider is not enabled");
+        }
     }
 
     @Override
@@ -107,7 +122,7 @@ public class AesGcmCryptoService implements KeyReferenceCryptoService {
     private static byte[] encrypt(byte[] data, SecretKey dataKey, byte[] nonce) {
         try {
             GCMParameterSpec params = getGcmParameterSpec(nonce);
-            Cipher cipher = Cipher.getInstance(CRYPTO_ALGO, CORRETO_PROVIDER_NAME);
+            Cipher cipher = createCipher();
             cipher.init(Cipher.ENCRYPT_MODE, dataKey, params);
             return cipher.doFinal(data);
         } catch (GeneralSecurityException e) {
@@ -122,13 +137,20 @@ public class AesGcmCryptoService implements KeyReferenceCryptoService {
 
     private byte[] decrypt(SecretKey key, byte[] nonce, byte[] cipherText) {
         try {
-            Cipher cipher = Cipher.getInstance(CRYPTO_ALGO, CORRETO_PROVIDER_NAME);
+            Cipher cipher = createCipher();
             GCMParameterSpec params = getGcmParameterSpec(nonce);
             cipher.init(Cipher.DECRYPT_MODE, key, params);
             return cipher.doFinal(cipherText);
         } catch (GeneralSecurityException e) {
             throw CryptoException.decryptionFailed(e);
         }
+    }
+
+    private static Cipher createCipher() throws NoSuchAlgorithmException, NoSuchProviderException, NoSuchPaddingException {
+        if (correttoEnabled) {
+            return Cipher.getInstance(CRYPTO_ALGO, CORRETO_PROVIDER_NAME);
+        }
+        return Cipher.getInstance(CRYPTO_ALGO);
     }
 
     @Override

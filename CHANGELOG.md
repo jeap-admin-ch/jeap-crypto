@@ -10,6 +10,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 - Improve platform support (ex. aarch64) by providing Corretto Crypto Provider implementations for all available platforms
+- Make Corretto Crypto Provider optional at runtime
 
 ## [3.10.0] - 2025-02-10
 
