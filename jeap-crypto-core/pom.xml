@@ -14,7 +14,6 @@
     <packaging>jar</packaging>
 
     <properties>
-        <AmazonCorrettoCryptoProvider.version>2.4.1</AmazonCorrettoCryptoProvider.version>
         <guava-testlib.version>31.1-jre</guava-testlib.version>
     </properties>
 
@@ -22,25 +21,21 @@
         <dependency>
             <groupId>software.amazon.cryptools</groupId>
             <artifactId>AmazonCorrettoCryptoProvider</artifactId>
-            <version>${AmazonCorrettoCryptoProvider.version}</version>
             <classifier>linux-x86_64</classifier>
         </dependency>
         <dependency>
             <groupId>software.amazon.cryptools</groupId>
             <artifactId>AmazonCorrettoCryptoProvider</artifactId>
-            <version>${AmazonCorrettoCryptoProvider.version}</version>
             <classifier>linux-aarch_64</classifier>
         </dependency>
         <dependency>
             <groupId>software.amazon.cryptools</groupId>
             <artifactId>AmazonCorrettoCryptoProvider</artifactId>
-            <version>${AmazonCorrettoCryptoProvider.version}</version>
             <classifier>osx-x86_64</classifier>
         </dependency>
         <dependency>
             <groupId>software.amazon.cryptools</groupId>
             <artifactId>AmazonCorrettoCryptoProvider</artifactId>
-            <version>${AmazonCorrettoCryptoProvider.version}</version>
             <classifier>osx-aarch_64</classifier>
         </dependency>
         <dependency>
