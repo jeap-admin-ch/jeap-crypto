@@ -38,8 +38,8 @@
     <properties>
         <maven.javadoc.skip>false</maven.javadoc.skip>
         <!-- Used for integration testing with the starters -->
-        <jeap-spring-boot-vault-starter.version>17.21.0</jeap-spring-boot-vault-starter.version>
-        <testcontainers.version>1.19.8</testcontainers.version>
+        <jeap-spring-boot-vault-starter.version>17.25.0</jeap-spring-boot-vault-starter.version>
+        <testcontainers.version>1.20.6</testcontainers.version>
         <ryuk.container.image>testcontainers/ryuk:0.11.0</ryuk.container.image>
         <!-- Disable unhelpful sonar warnings for mutable field values -->
         <sonar.issue.ignore.multicriteria>e1</sonar.issue.ignore.multicriteria>
