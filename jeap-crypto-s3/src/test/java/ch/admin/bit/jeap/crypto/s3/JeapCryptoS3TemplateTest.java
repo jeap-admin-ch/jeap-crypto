@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -195,6 +196,150 @@ class JeapCryptoS3TemplateTest {
         verify(cryptoServiceMock, times(1)).decrypt(any());
         assertEquals(BUCKET_NAME, jeapDecryptedS3Object.getBucketName());
         assertEquals(OBJECT_KEY_NAME, jeapDecryptedS3Object.getObjectKey());
+        assertEquals(PLAIN_TEXT, new String(jeapDecryptedS3Object.getDecryptedObjectContent(), StandardCharsets.UTF_8));
+    }
+
+    @Test
+    void getObject_with_specific_versionId() {
+        // given
+        CryptoService cryptoServiceMock = mock(CryptoService.class);
+        S3Client s3ClientMock = mock(S3Client.class);
+        JeapCryptoS3Template jeapCryptoS3Template = new JeapCryptoS3Template(s3ClientMock, cryptoServiceMock);
+
+        String versionId = "v1";
+        byte[] decryptedByteArray = PLAIN_TEXT.getBytes(StandardCharsets.UTF_8);
+        when(cryptoServiceMock.decrypt(any(byte[].class))).thenReturn(decryptedByteArray);
+        GetObjectResponse response = GetObjectResponse.builder()
+                .build();
+        ResponseBytes<GetObjectResponse> objectBytes = ResponseBytes.fromByteArray(response, "Hello Test".getBytes(StandardCharsets.UTF_8));
+        when(s3ClientMock.getObjectAsBytes(any(GetObjectRequest.class))).thenReturn(objectBytes);
+        Map<String, String> metadata = new HashMap<>();
+        metadata.put("is_encrypted", "true");
+        HeadObjectResponse headObjectResponse = HeadObjectResponse.builder()
+                .metadata(metadata)
+                .build();
+        when(s3ClientMock.headObject(any(HeadObjectRequest.class))).thenReturn(headObjectResponse);
+
+        // when
+        JeapDecryptedS3Object jeapDecryptedS3Object = jeapCryptoS3Template.getObject(BUCKET_NAME, OBJECT_KEY_NAME, versionId);
+
+        // then
+        verify(s3ClientMock, times(1)).getObjectAsBytes(any(GetObjectRequest.class));
+        ArgumentCaptor<GetObjectRequest> argument = ArgumentCaptor.forClass(GetObjectRequest.class);
+        verify(s3ClientMock).getObjectAsBytes(argument.capture());
+        assertEquals(BUCKET_NAME, argument.getValue().bucket());
+        assertEquals(OBJECT_KEY_NAME, argument.getValue().key());
+        assertEquals(versionId, argument.getValue().versionId());
+        verify(cryptoServiceMock, times(1)).decrypt(any());
+        assertEquals(BUCKET_NAME, jeapDecryptedS3Object.getBucketName());
+        assertEquals(OBJECT_KEY_NAME, jeapDecryptedS3Object.getObjectKey());
+        assertEquals(versionId, jeapDecryptedS3Object.getVersionId());
+        assertEquals(PLAIN_TEXT, new String(jeapDecryptedS3Object.getDecryptedObjectContent(), StandardCharsets.UTF_8));
+    }
+
+    @Test
+    void getObject_with_null_versionId() {
+        // given
+        CryptoService cryptoServiceMock = mock(CryptoService.class);
+        S3Client s3ClientMock = mock(S3Client.class);
+        JeapCryptoS3Template jeapCryptoS3Template = new JeapCryptoS3Template(s3ClientMock, cryptoServiceMock);
+
+        String versionId = null;
+        byte[] decryptedByteArray = PLAIN_TEXT.getBytes(StandardCharsets.UTF_8);
+        when(cryptoServiceMock.decrypt(any(byte[].class))).thenReturn(decryptedByteArray);
+        GetObjectResponse response = GetObjectResponse.builder()
+                .build();
+        ResponseBytes<GetObjectResponse> objectBytes = ResponseBytes.fromByteArray(response, "Hello Test".getBytes(StandardCharsets.UTF_8));
+        when(s3ClientMock.getObjectAsBytes(any(GetObjectRequest.class))).thenReturn(objectBytes);
+        Map<String, String> metadata = new HashMap<>();
+        metadata.put("is_encrypted", "true");
+        HeadObjectResponse headObjectResponse = HeadObjectResponse.builder()
+                .metadata(metadata)
+                .build();
+        when(s3ClientMock.headObject(any(HeadObjectRequest.class))).thenReturn(headObjectResponse);
+
+        // when
+        JeapDecryptedS3Object jeapDecryptedS3Object = jeapCryptoS3Template.getObject(BUCKET_NAME, OBJECT_KEY_NAME, versionId);
+
+        // then
+        verify(s3ClientMock, times(1)).getObjectAsBytes(any(GetObjectRequest.class));
+        ArgumentCaptor<GetObjectRequest> argument = ArgumentCaptor.forClass(GetObjectRequest.class);
+        verify(s3ClientMock).getObjectAsBytes(argument.capture());
+        assertEquals(BUCKET_NAME, argument.getValue().bucket());
+        assertEquals(OBJECT_KEY_NAME, argument.getValue().key());
+        assertNull(argument.getValue().versionId());
+        verify(cryptoServiceMock, times(1)).decrypt(any());
+        assertEquals(BUCKET_NAME, jeapDecryptedS3Object.getBucketName());
+        assertEquals(OBJECT_KEY_NAME, jeapDecryptedS3Object.getObjectKey());
+        assertNull(jeapDecryptedS3Object.getVersionId());
+        assertEquals(PLAIN_TEXT, new String(jeapDecryptedS3Object.getDecryptedObjectContent(), StandardCharsets.UTF_8));
+    }
+
+    @Test
+    void getObject_no_versionId_should_call_overloaded_method() {
+        // given
+        CryptoService cryptoServiceMock = mock(CryptoService.class);
+        S3Client s3ClientMock = mock(S3Client.class);
+        JeapCryptoS3Template jeapCryptoS3TemplateSpy = spy(new JeapCryptoS3Template(s3ClientMock, cryptoServiceMock));
+
+        byte[] decryptedByteArray = PLAIN_TEXT.getBytes(StandardCharsets.UTF_8);
+        when(cryptoServiceMock.decrypt(any(byte[].class))).thenReturn(decryptedByteArray);
+        GetObjectResponse response = GetObjectResponse.builder()
+                .build();
+        ResponseBytes<GetObjectResponse> objectBytes = ResponseBytes.fromByteArray(response, "Hello Test".getBytes(StandardCharsets.UTF_8));
+        when(s3ClientMock.getObjectAsBytes(any(GetObjectRequest.class))).thenReturn(objectBytes);
+        Map<String, String> metadata = new HashMap<>();
+        metadata.put("is_encrypted", "true");
+        HeadObjectResponse headObjectResponse = HeadObjectResponse.builder()
+                .metadata(metadata)
+                .build();
+        when(s3ClientMock.headObject(any(HeadObjectRequest.class))).thenReturn(headObjectResponse);
+
+        // Configure the spy to return a mock result for the 3-parameter method
+        JeapDecryptedS3Object mockResult = JeapDecryptedS3Object.of(BUCKET_NAME, OBJECT_KEY_NAME, null, metadata, decryptedByteArray);
+        doReturn(mockResult).when(jeapCryptoS3TemplateSpy).getObject(BUCKET_NAME, OBJECT_KEY_NAME, null);
+
+        // when
+        jeapCryptoS3TemplateSpy.getObject(BUCKET_NAME, OBJECT_KEY_NAME);
+
+        // then
+        verify(jeapCryptoS3TemplateSpy, times(1)).getObject(BUCKET_NAME, OBJECT_KEY_NAME, null);
+    }
+
+    @Test
+    void getObject_with_key_reference_crypto_service_and_versionId() {
+        // given
+        KeyReferenceCryptoService cryptoServiceMock = mock(KeyReferenceCryptoService.class);
+        S3Client s3ClientMock = mock(S3Client.class);
+        KeyReference keyReference = new KeyReference("test");
+        JeapCryptoS3Template jeapCryptoS3Template = new JeapCryptoS3Template(s3ClientMock, cryptoServiceMock, keyReference);
+
+        String versionId = "v2";
+        byte[] decryptedByteArray = PLAIN_TEXT.getBytes(StandardCharsets.UTF_8);
+        when(cryptoServiceMock.decrypt(any(byte[].class))).thenReturn(decryptedByteArray);
+        GetObjectResponse response = GetObjectResponse.builder()
+                .build();
+        ResponseBytes<GetObjectResponse> objectBytes = ResponseBytes.fromByteArray(response, "Hello Test".getBytes(StandardCharsets.UTF_8));
+        when(s3ClientMock.getObjectAsBytes(any(GetObjectRequest.class))).thenReturn(objectBytes);
+        Map<String, String> metadata = new HashMap<>();
+        metadata.put("is_encrypted", "true");
+        HeadObjectResponse headObjectResponse = HeadObjectResponse.builder()
+                .metadata(metadata)
+                .build();
+        when(s3ClientMock.headObject(any(HeadObjectRequest.class))).thenReturn(headObjectResponse);
+
+        // when
+        JeapDecryptedS3Object jeapDecryptedS3Object = jeapCryptoS3Template.getObject(BUCKET_NAME, OBJECT_KEY_NAME, versionId);
+
+        // then
+        verify(s3ClientMock, times(1)).getObjectAsBytes(any(GetObjectRequest.class));
+        ArgumentCaptor<GetObjectRequest> argument = ArgumentCaptor.forClass(GetObjectRequest.class);
+        verify(s3ClientMock).getObjectAsBytes(argument.capture());
+        assertEquals(versionId, argument.getValue().versionId());
+        verify(cryptoServiceMock, times(1)).decrypt(any());
+        assertEquals(BUCKET_NAME, jeapDecryptedS3Object.getBucketName());
+        assertEquals(OBJECT_KEY_NAME, jeapDecryptedS3Object.getObjectKey());
+        assertEquals(versionId, jeapDecryptedS3Object.getVersionId());
         assertEquals(PLAIN_TEXT, new String(jeapDecryptedS3Object.getDecryptedObjectContent(), StandardCharsets.UTF_8));
     }
 }

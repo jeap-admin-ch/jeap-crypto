@@ -100,6 +100,19 @@ public class JeapCryptoS3Template {
      * @return JeapDecryptedS3Object - holds the decrypted content of an object
      */
     public JeapDecryptedS3Object getObject(String bucketName, String keyName) {
+        return getObject(bucketName, keyName, null);
+    }
+
+    /**
+     * Retrieves objects from S3 and decrypt the content if userMetaData 'is_encrypted: true' is set.
+     * If userMetaData 'is_encrypted: true' is not set, the content will not be decrypted.
+     *
+     * @param bucketName - The name of the bucket containing the object to retrieve.
+     * @param keyName    - The key of the object to retrieve.
+     * @param versionId  - The versionId of the object to retrieve.
+     * @return JeapDecryptedS3Object - holds the decrypted content of an object
+     */
+    public JeapDecryptedS3Object getObject(String bucketName, String keyName, String versionId) {
         HeadObjectRequest headObjectRequest = HeadObjectRequest.builder()
                 .key(keyName)
                 .bucket(bucketName)
@@ -107,13 +120,15 @@ public class JeapCryptoS3Template {
 
         Map<String, String> metadata = s3Client.headObject(headObjectRequest).metadata();
         boolean isEncrypted = isObjectEncrypted(metadata);
-
-        GetObjectRequest objectRequest = GetObjectRequest
-                .builder()
+        GetObjectRequest.Builder requestBuilder = GetObjectRequest.builder()
                 .key(keyName)
-                .bucket(bucketName)
-                .build();
+                .bucket(bucketName);
 
+        if (versionId != null) {
+            requestBuilder.versionId(versionId);
+        }
+
+        GetObjectRequest objectRequest = requestBuilder.build();
         ResponseBytes<GetObjectResponse> objectBytes = s3Client.getObjectAsBytes(objectRequest);
         byte[] objectContent = objectBytes.asByteArray();
 
@@ -125,7 +140,7 @@ public class JeapCryptoS3Template {
             decryptedText = objectContent;
         }
 
-        return JeapDecryptedS3Object.of(bucketName, keyName, metadata, decryptedText);
+        return JeapDecryptedS3Object.of(bucketName, keyName, versionId, metadata, decryptedText);
     }
 
     private static boolean isObjectEncrypted(Map<String, String> metadata) {

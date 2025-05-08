@@ -14,6 +14,7 @@ public class JeapDecryptedS3Object {
 
     private String bucketName;
     private String objectKey;
+    private String versionId;
     private Map<String, String> metadata = new HashMap<>();
     private byte[] decryptedObjectContent;
 
