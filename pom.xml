@@ -26,7 +26,7 @@
     </licenses>
 
     <artifactId>jeap-crypto</artifactId>
-    <version>3.15.0-SNAPSHOT</version>
+    <version>3.16.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <parent>
@@ -39,7 +39,7 @@
         <maven.javadoc.skip>false</maven.javadoc.skip>
         <!-- Used for integration testing with the starters -->
         <jeap-spring-boot-vault-starter.version>17.25.0</jeap-spring-boot-vault-starter.version>
-        <testcontainers.version>1.20.6</testcontainers.version>
+        <testcontainers.version>1.21.0</testcontainers.version>
         <ryuk.container.image>testcontainers/ryuk:0.11.0</ryuk.container.image>
         <!-- Disable unhelpful sonar warnings for mutable field values -->
         <sonar.issue.ignore.multicriteria>e1</sonar.issue.ignore.multicriteria>
