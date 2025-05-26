@@ -1,9 +1,4 @@
 # Changelog
-## [3.17.0] - 2025-05-26
-### Changed
-- update jeap-spring-boot-vault-starter.version from 17.25.0 to 17.32.0
-- Update parent from 5.8.0 to 5.8.1
-
 
 All notable changes to this project will be documented in this file.
 
@@ -11,9 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [3.17.0] - 2025-05-26
-
 ### Changed
 
+- update jeap-spring-boot-vault-starter.version from 17.25.0 to 17.32.0
 - Update parent from 5.8.0 to 5.8.1
 
 ## [3.16.0] - 2025-05-09
