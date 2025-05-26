@@ -1,4 +1,9 @@
 # Changelog
+## [3.17.0] - 2025-05-26
+### Changed
+- update jeap-spring-boot-vault-starter.version from 17.25.0 to 17.32.0
+- Update parent from 5.8.0 to 5.8.1
+
 
 All notable changes to this project will be documented in this file.
 
