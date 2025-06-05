@@ -8,12 +8,12 @@ Third-party dependencies grouped by their license type (see [pom.xml](/pom.xml) 
 Apache License Version 2.0
 -------------------------------
 
- * jeap-crypto-aws-kms - [ch.admin.bit.jeap:jeap-crypto-aws-kms](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-aws-kms)
- * jeap-crypto-aws-kms-starter - [ch.admin.bit.jeap:jeap-crypto-aws-kms-starter](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-aws-kms-starter)
- * jeap-crypto-core - [ch.admin.bit.jeap:jeap-crypto-core](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-core)
- * jeap-crypto-spring - [ch.admin.bit.jeap:jeap-crypto-spring](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-spring)
- * jeap-crypto-vault - [ch.admin.bit.jeap:jeap-crypto-vault](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-vault)
- * jeap-crypto-vault-starter - [ch.admin.bit.jeap:jeap-crypto-vault-starter](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-vault-starter)
+ * ch.admin.bit.jeap:jeap-crypto-aws-kms - [ch.admin.bit.jeap:jeap-crypto-aws-kms](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-aws-kms)
+ * ch.admin.bit.jeap:jeap-crypto-aws-kms-starter - [ch.admin.bit.jeap:jeap-crypto-aws-kms-starter](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-aws-kms-starter)
+ * ch.admin.bit.jeap:jeap-crypto-core - [ch.admin.bit.jeap:jeap-crypto-core](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-core)
+ * ch.admin.bit.jeap:jeap-crypto-spring - [ch.admin.bit.jeap:jeap-crypto-spring](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-spring)
+ * ch.admin.bit.jeap:jeap-crypto-vault - [ch.admin.bit.jeap:jeap-crypto-vault](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-vault)
+ * ch.admin.bit.jeap:jeap-crypto-vault-starter - [ch.admin.bit.jeap:jeap-crypto-vault-starter](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-vault-starter)
  * jeap-spring-boot-vault-starter - [ch.admin.bit.jeap:jeap-spring-boot-vault-starter](https://github.com/jeap-admin-ch/jeap-spring-boot-starters/tree/main/jeap-spring-boot-vault-starter)
  * ClassMate - [com.fasterxml:classmate](https://github.com/FasterXML/java-classmate)
  * Jackson-annotations - [com.fasterxml.jackson.core:jackson-annotations](https://github.com/FasterXML/jackson)
