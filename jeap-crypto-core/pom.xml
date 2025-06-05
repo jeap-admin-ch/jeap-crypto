@@ -11,6 +11,7 @@
     </parent>
 
     <artifactId>jeap-crypto-core</artifactId>
+    <name>${project.groupId}:${project.artifactId}</name>
     <packaging>jar</packaging>
 
     <properties>

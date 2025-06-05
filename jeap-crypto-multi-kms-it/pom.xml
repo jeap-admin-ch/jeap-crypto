@@ -11,6 +11,7 @@
     </parent>
 
     <artifactId>jeap-crypto-multi-kms-it</artifactId>
+    <name>${project.groupId}:${project.artifactId}</name>
     <packaging>jar</packaging>
 
     <dependencies>

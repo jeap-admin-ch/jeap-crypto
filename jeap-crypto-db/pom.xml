@@ -9,6 +9,7 @@
     </parent>
 
     <artifactId>jeap-crypto-db</artifactId>
+    <name>${project.groupId}:${project.artifactId}</name>
 
 
     <dependencies>

@@ -11,6 +11,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Update parent from 5.8.1 to 5.9.0
 
+### Bugfix
+
+- Project Name now required for uploads to Maven Central
+
 ## [3.17.0] - 2025-05-26
 ### Changed
 
