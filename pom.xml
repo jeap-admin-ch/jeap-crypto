@@ -27,7 +27,7 @@
 
     <artifactId>jeap-crypto</artifactId>
     <name>${project.groupId}:${project.artifactId}</name>
-    <version>3.19.0-SNAPSHOT</version>
+    <version>3.20.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <parent>
@@ -39,7 +39,7 @@
     <properties>
         <maven.javadoc.skip>false</maven.javadoc.skip>
         <!-- Used for integration testing with the starters -->
-        <jeap-spring-boot-vault-starter.version>17.34.0</jeap-spring-boot-vault-starter.version>
+        <jeap-spring-boot-vault-starter.version>17.35.0</jeap-spring-boot-vault-starter.version>
         <testcontainers.version>1.21.0</testcontainers.version>
         <ryuk.container.image>testcontainers/ryuk:0.11.0</ryuk.container.image>
         <!-- Disable unhelpful sonar warnings for mutable field values -->
