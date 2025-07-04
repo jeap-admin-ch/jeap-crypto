@@ -23,7 +23,6 @@ Apache License Version 2.0
  * docker-java-api - [com.github.docker-java:docker-java-api](https://github.com/docker-java/docker-java)
  * docker-java-transport - [com.github.docker-java:docker-java-transport](https://github.com/docker-java/docker-java)
  * docker-java-transport-zerodep - [com.github.docker-java:docker-java-transport-zerodep](https://github.com/docker-java/docker-java)
- * FindBugs-jsr305 - [com.google.code.findbugs:jsr305](http://findbugs.sourceforge.net/)
  * error-prone annotations - [com.google.errorprone:error_prone_annotations](https://errorprone.info/error_prone_annotations)
  * Guava InternalFutureFailureAccess and InternalFutures - [com.google.guava:failureaccess](https://github.com/google/guava/failureaccess)
  * Guava: Google Core Libraries for Java - [com.google.guava:guava](https://github.com/google/guava)
@@ -206,7 +205,6 @@ LGPL-2.1-or-later
 MIT License
 -------------------------------
 
- * Checker Qual - [org.checkerframework:checker-qual](https://checkerframework.org)
  * mockito-core - [org.mockito:mockito-core](https://github.com/mockito/mockito)
  * mockito-junit-jupiter - [org.mockito:mockito-junit-jupiter](https://github.com/mockito/mockito)
  * Project Lombok - [org.projectlombok:lombok](https://projectlombok.org)
