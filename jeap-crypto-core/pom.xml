@@ -14,10 +14,6 @@
     <name>${project.groupId}:${project.artifactId}</name>
     <packaging>jar</packaging>
 
-    <properties>
-        <guava-testlib.version>31.1-jre</guava-testlib.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>software.amazon.cryptools</groupId>

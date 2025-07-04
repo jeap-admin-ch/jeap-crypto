@@ -8,8 +8,6 @@ import com.github.benmanes.caffeine.cache.Caffeine;
 import com.github.benmanes.caffeine.cache.Expiry;
 import com.github.benmanes.caffeine.cache.Ticker;
 import com.github.benmanes.caffeine.cache.stats.CacheStats;
-import org.checkerframework.checker.index.qual.NonNegative;
-import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.time.Duration;
 import java.util.Arrays;
@@ -143,17 +141,17 @@ public class CachingKeyManagementService implements KeyManagementService {
     private record EncryptionKeyExpiry(Function<KeyReference, Duration> expireAfterCreateDurationFunction)
             implements Expiry<KeyReference, DataKeyPair> {
         @Override
-        public long expireAfterCreate(@NonNull KeyReference keyReference, @NonNull DataKeyPair value, long currentTime) {
+        public long expireAfterCreate(KeyReference keyReference, DataKeyPair value, long currentTime) {
             return expireAfterCreateDurationFunction.apply(keyReference).toNanos();
         }
 
         @Override
-        public long expireAfterUpdate(@NonNull KeyReference key, @NonNull DataKeyPair value, long currentTime, @NonNegative long currentDuration) {
+        public long expireAfterUpdate(KeyReference key, DataKeyPair value, long currentTime, long currentDuration) {
             return currentDuration;
         }
 
         @Override
-        public long expireAfterRead(@NonNull KeyReference key, @NonNull DataKeyPair value, long currentTime, @NonNegative long currentDuration) {
+        public long expireAfterRead(KeyReference key, DataKeyPair value, long currentTime, long currentDuration) {
             return currentDuration;
         }
     }
@@ -166,12 +164,12 @@ public class CachingKeyManagementService implements KeyManagementService {
         }
 
         @Override
-        public long expireAfterUpdate(@NonNull DecryptionDataKeyCacheKey key, byte[] value, long currentTime, @NonNegative long currentDuration) {
+        public long expireAfterUpdate(DecryptionDataKeyCacheKey key, byte[] value, long currentTime, long currentDuration) {
             return currentDuration;
         }
 
         @Override
-        public long expireAfterRead(@NonNull DecryptionDataKeyCacheKey key, byte[] value, long currentTime, @NonNegative long currentDuration) {
+        public long expireAfterRead(DecryptionDataKeyCacheKey key, byte[] value, long currentTime, long currentDuration) {
             return currentDuration;
         }
     }
