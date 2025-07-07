@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.24.1] - 2025-07-07
+### Changed
+- update jeap-spring-boot-vault-starter from 17.39.0 to 17.39.1
+- Make sure JeapPostgreSQLAWSDataSourceAutoConfig is evaluated before Spring's DataSourceAutoConfiguration to avoid
+  DataSource bean conflicts.
+
+
 ## [3.24.0] - 2025-07-04
 
 ### Changed
