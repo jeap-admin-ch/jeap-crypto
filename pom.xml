@@ -27,7 +27,7 @@
 
     <artifactId>jeap-crypto</artifactId>
     <name>${project.groupId}:${project.artifactId}</name>
-    <version>3.24.2-SNAPSHOT</version>
+    <version>3.24.3-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <parent>
@@ -39,7 +39,7 @@
     <properties>
         <maven.javadoc.skip>false</maven.javadoc.skip>
         <!-- Used for integration testing with the starters -->
-        <jeap-spring-boot-vault-starter.version>17.39.2</jeap-spring-boot-vault-starter.version>
+        <jeap-spring-boot-vault-starter.version>17.39.3</jeap-spring-boot-vault-starter.version>
         <testcontainers.version>1.21.3</testcontainers.version>
         <guava-testlib.version>33.4.8-jre</guava-testlib.version>
         <ryuk.container.image>testcontainers/ryuk:0.11.0</ryuk.container.image>
