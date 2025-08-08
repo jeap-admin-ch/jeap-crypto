@@ -14,11 +14,15 @@ softwareType: library
 description:
   en:
     localisedName: jeap-crypto
-    shortDescription: TODO (Max. 150 characters)
+    shortDescription: jEAP library that provides client-side encryption functionality for data at-rest
     longDescription: >
-      TODO (Min. 150 characters)
+      jEAP Crypto is a library that provides client-side encryption functionality for data at-rest and is part of the jEAP 
+      project. Client-side encryption is based on AES-256 GCM. jEAP Crypto also provides integration with Spring Boot,
+      and simplifies the process of using different Key Management System implementations.
     features:
-      - TODO
+      - Provides client-side encryption functionality for data at-rest
+      - Simplifies client-side encryption with AES-256 GCM for object storage, databases and kafka messages
+      - Integrates with AWS KMS and Hashicorp Vault for key management
 legal:
   license: Apache-2.0
 maintenance:
