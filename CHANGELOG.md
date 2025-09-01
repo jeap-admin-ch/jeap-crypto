@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.28.0] - 2025-09-01
+### Changed
+- update jeap-spring-boot-vault-starter from 17.42.0 to 17.43.0
+- The OAuth 2.0 client-related code has been extracted into its own starter, which is imported by the
+  jeap-spring-boot-security-starter to maintain backward compatibility.
+
+
 ## [3.27.0] - 2025-08-26
 
 ### Changed
