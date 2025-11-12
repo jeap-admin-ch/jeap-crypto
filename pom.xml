@@ -39,7 +39,7 @@
     <properties>
         <maven.javadoc.skip>false</maven.javadoc.skip>
         <!-- Used for integration testing with the starters -->
-        <jeap-spring-boot-vault-starter.version>18.2.0</jeap-spring-boot-vault-starter.version>
+        <jeap-spring-boot-vault-starter.version>18.3.0</jeap-spring-boot-vault-starter.version>
         <testcontainers.version>1.21.3</testcontainers.version>
         <guava-testlib.version>33.5.0-jre</guava-testlib.version>
         <ryuk.container.image>testcontainers/ryuk:0.11.0</ryuk.container.image>
