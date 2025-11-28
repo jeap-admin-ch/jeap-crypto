@@ -17,6 +17,9 @@ import org.testcontainers.utility.DockerImageName;
 import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
 import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
 import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
+import software.amazon.awssdk.http.SdkHttpClient;
+import software.amazon.awssdk.http.urlconnection.ProxyConfiguration;
+import software.amazon.awssdk.http.urlconnection.UrlConnectionHttpClient;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.kms.KmsClient;
 import software.amazon.awssdk.services.kms.model.CreateKeyRequest;
@@ -64,7 +67,12 @@ class AwsKeyManagementServiceTest {
         AwsCredentialsProvider credentialsProvider = StaticCredentialsProvider.create(
                 AwsBasicCredentials.create(localStack.getAccessKey(), localStack.getSecretKey()));
         Region region = Region.of(localStack.getRegion());
-        AwsKmsClient kmsClient = new AwsKmsClient(credentialsProvider, region, localStack.getEndpointOverride(Service.KMS));
+        SdkHttpClient sdkHttpClient = UrlConnectionHttpClient.builder()
+                .proxyConfiguration(ProxyConfiguration.builder()
+                        .useSystemPropertyValues(false)
+                        .useEnvironmentVariablesValues(false)
+                        .build()).build();
+        AwsKmsClient kmsClient = new AwsKmsClient(credentialsProvider, region, localStack.getEndpointOverride(Service.KMS), sdkHttpClient);
         keyArn = createTestKey(credentialsProvider, region);
         Map<KeyReference, EscrowKeyConfig> escrowKeys = Map.of(
                 new KeyReference(keyArn), new EscrowKeyConfig(EscrowKeyType.RSA_4096, generatePublicKey()));
@@ -84,6 +92,11 @@ class AwsKeyManagementServiceTest {
     private String createTestKey(AwsCredentialsProvider credentialsProvider, Region region) {
         try (KmsClient kmsClient = KmsClient.builder()
                 .region(region)
+                .httpClientBuilder(UrlConnectionHttpClient.builder()
+                        .proxyConfiguration(ProxyConfiguration.builder()
+                                .useSystemPropertyValues(false)
+                                .useEnvironmentVariablesValues(false)
+                                .build()))
                 .credentialsProvider(credentialsProvider)
                 .endpointOverride(localStack.getEndpointOverride(Service.KMS))
                 .build()) {

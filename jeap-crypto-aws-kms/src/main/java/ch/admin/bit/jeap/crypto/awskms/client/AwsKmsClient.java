@@ -4,6 +4,7 @@ import jakarta.annotation.PreDestroy;
 import lombok.extern.slf4j.Slf4j;
 import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
 import software.amazon.awssdk.core.SdkBytes;
+import software.amazon.awssdk.http.SdkHttpClient;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.kms.KmsClient;
 import software.amazon.awssdk.services.kms.model.DecryptRequest;
@@ -28,6 +29,15 @@ public class AwsKmsClient {
     public AwsKmsClient(AwsCredentialsProvider awsCredentialsProvider, Region region, URI endpointOverride) {
         this.kmsClient = KmsClient.builder()
                 .region(region)
+                .credentialsProvider(awsCredentialsProvider)
+                .endpointOverride(endpointOverride)
+                .build();
+    }
+
+    public AwsKmsClient(AwsCredentialsProvider awsCredentialsProvider, Region region, URI endpointOverride, SdkHttpClient httpClient) {
+        this.kmsClient = KmsClient.builder()
+                .region(region)
+                .httpClient(httpClient)
                 .credentialsProvider(awsCredentialsProvider)
                 .endpointOverride(endpointOverride)
                 .build();
