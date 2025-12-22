@@ -1,8 +1,8 @@
 publiccodeYmlVersion: 0.4.0
 name: jeap-crypto
 applicationSuite: jEAP
-softwareVersion: 5.6.0
-releaseDate: 2025-12-19
+softwareVersion: 5.7.0
+releaseDate: 2025-12-22
 url: "https://github.com/jeap-admin-ch/jeap-crypto.git"
 landingURL: "https://github.com/jeap-admin-ch/jeap"
 platforms:
