@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.12.0] - 2026-01-21
+### Changed
+- update jeap-spring-boot-vault-starter from 19.11.0 to 19.12.0
+- Removed X-XSS-Protection header as recommended in https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-XSS-Protection
+
 ## [5.11.0] - 2026-01-20
 ### Changed
 - update jeap-spring-boot-vault-starter from 19.10.0 to 19.11.0
