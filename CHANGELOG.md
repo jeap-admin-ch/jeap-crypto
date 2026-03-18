@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.3.0] - 2026-03-18
+### Changed
+- update jeap-spring-boot-vault-starter from 20.2.0 to 20.3.0
+- Added an eIAM claim set converter that can adapt eIAM-issued access tokens for jeap security.
+
 ## [6.2.0] - 2026-03-17
 ### Changed
 - update jeap-spring-boot-vault-starter from 20.1.0 to 20.2.0
