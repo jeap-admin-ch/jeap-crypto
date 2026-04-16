@@ -8,8 +8,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [7.3.0] - 2026-04-16
 
 ### Changed
-
 - Update parent from 6.0.2 to 6.0.3
+- update jeap-spring-boot-vault-starter from 21.2.0 to 21.3.0
 
 ## [7.2.0] - 2026-04-13
 
