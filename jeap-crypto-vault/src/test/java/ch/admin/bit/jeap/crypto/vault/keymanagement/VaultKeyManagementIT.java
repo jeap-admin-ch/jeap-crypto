@@ -9,10 +9,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.vault.core.VaultOperations;
 import org.testcontainers.containers.Container.ExecResult;
 import org.testcontainers.junit.jupiter.Container;
@@ -38,16 +38,16 @@ class VaultKeyManagementIT {
     @Autowired
     private VaultOperations vaultOperations;
 
-    @MockBean
+    @MockitoBean
     private CryptoMetricsService cryptoMetricsService;
 
     @Container
-    static public VaultTestContainer vaultContainer = new VaultTestContainer();
+    public static VaultTestContainer vaultContainer = new VaultTestContainer();
 
     private VaultKeyManagementService vaultKeyManagementService;
 
     @BeforeEach
-    public void beforeEach() {
+    void beforeEach() {
         vaultKeyManagementService = new VaultKeyManagementService(vaultOperations, cryptoMetricsService);
     }
 
