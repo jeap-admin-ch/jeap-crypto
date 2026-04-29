@@ -1,7 +1,7 @@
 publiccodeYmlVersion: 0.4.0
 name: jeap-crypto
 applicationSuite: jEAP
-softwareVersion: 8.2.0-alpha-springboot4
+softwareVersion: 8.3.0-alpha-springboot4
 releaseDate: 2026-04-29
 url: "https://github.com/jeap-admin-ch/jeap-crypto.git"
 landingURL: "https://github.com/jeap-admin-ch/jeap"
