@@ -11,8 +11,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [8.6.0-alpha-springboot4] - 2026-05-19
 
 ### Changed
-
 - Update parent from 7.0.7-alpha-springboot4 to 7.0.9-alpha-springboot4
+- update jeap-spring-boot-vault-starter from 22.5.1-alpha-springboot4 to 22.6.0-alpha-springboot4
 
 ## [8.5.1-alpha-springboot4] - 2026-05-15
 ### Changed
