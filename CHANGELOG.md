@@ -8,8 +8,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [7.6.0] - 2026-05-19
 
 ### Changed
-
+  It ignores requests with Accept: text/event-stream as the `ShallowEtagFilter` was waiting for the response to complete
+  which never happens as it is a stream.
 - Update parent from 6.0.4 to 6.0.5
+- Set `SseAwareEtagHeaderFilter` as default bean for the ShallowEtagFilter. 
+- Custom subclass of `ShallowEtagFilter` called `SseAwareEtagHeaderFilter`
+- update jeap-spring-boot-vault-starter from 21.5.0 to 21.6.0
 
 ## [7.5.0] - 2026-05-06
 
