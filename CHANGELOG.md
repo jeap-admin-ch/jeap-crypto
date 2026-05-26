@@ -8,55 +8,18 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 > - Spring Boot 3 maintenance (bug fixes, patches, and regular updates) continues on branch `release/springboot3`.
 > - The Spring Boot 4 upgrade process happens on the `master` branch, with the goal of releasing Spring Boot 4 compatible versions of all jeap components in a single major release.
 
-## [8.6.0-alpha-springboot4] - 2026-05-19
-
+## [9.0.0] - 2026-05-26
 ### Changed
-- Update parent from 7.0.7-alpha-springboot4 to 7.0.9-alpha-springboot4
-- update jeap-spring-boot-vault-starter from 22.5.1-alpha-springboot4 to 22.6.0-alpha-springboot4
-
-## [8.5.1-alpha-springboot4] - 2026-05-15
-### Changed
-  It ignores requests with Accept: text/event-stream as the `ShallowEtagFilter` was waiting for the response to complete
+- Official release with spring boot 4
+- It ignores requests with Accept: text/event-stream as the `ShallowEtagFilter` was waiting for the response to complete
   which never happens as it is a stream.
 - update jeap-spring-boot-vault-starter from 22.5.0-alpha-springboot4 to 22.5.1-alpha-springboot4
 - Custom subclass of `ShallowEtagFilter` called `SseAwareEtagHeaderFilter`
 - Set `SseAwareEtagHeaderFilter` as default bean for the ShallowEtagFilter. 
-
-## [8.5.0-alpha-springboot4] - 2026-05-07
-### Changed
-  escaping Spring's MVC handling while the trace context (`traceId`, `spanId`) is still present.
+- escaping Spring's MVC handling while the trace context (`traceId`, `spanId`) is still present.
   Enable via `jeap.logging.rest.unhandled-exception-logging.enabled=true`.
 - update jeap-spring-boot-vault-starter from 22.4.0-alpha-springboot4 to 22.5.0-alpha-springboot4
 - Added opt-in `UnhandledExceptionLoggingFilter` in `jeap-spring-boot-logging-starter` that logs exceptions
-
-## [8.4.0-alpha-springboot4] - 2026-05-06
-
-### Changed
-- Update parent from 7.0.6-alpha-springboot4 to 7.0.7-alpha-springboot4
-- update jeap-spring-boot-vault-starter from 22.3.1-alpha-springboot4 to 22.4.0-alpha-springboot4
-
-## [8.3.0-alpha-springboot4] - 2026-04-29
-### Changed
-  - fixed version in publiccode.html
-- update jeap-spring-boot-vault-starter from 22.2.0-alpha-springboot4 to 22.3.1-alpha-springboot4
-
-## [8.2.0-alpha-springboot4] - 2026-04-24
-
-### Changed
-- Update parent from 7.0.5-alpha-springboot4 to 7.0.6-alpha-springboot4
-- update jeap-spring-boot-vault-starter from 22.1.0-alpha-springboot4 to 22.2.0-alpha-springboot4
-
-## [8.1.0-alpha-springboot4] - 2026-04-23
-
-### Changed
-- Update parent from 7.0.2-alpha-springboot4 to 7.0.5-alpha-springboot4
-- Update parent from 7.0.4-alpha-springboot4 to 7.0.5-alpha-springboot4
-- update jeap-spring-boot-vault-starter from 21.3.0 to 22.1.0-alpha-springboot4
-
-## [8.0.0] - 2026-04-16
-
-### Changed
-- Update parent from 6.0.3 to 7.0.0-alpha-springboot4
 
 ## [7.3.0] - 2026-04-16
 
