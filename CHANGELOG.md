@@ -7,6 +7,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 > - Spring Boot 3 maintenance (bug fixes, patches, and regular updates) continues on branch `release/springboot3`.
 
+## [9.4.0] - 2026-06-11
+### Changed
+  responses (e.g. Spring Boot's welcome page forwarding `/` to `index.html`). ETag content-caching is now disabled
+  for FORWARD/INCLUDE dispatches so forwarded responses are served with their full body (without an ETag); regular
+  requests keep their ETag unchanged.
+- update jeap-spring-boot-vault-starter from 23.3.0 to 23.4.0
+- `jeap-spring-boot-web-config-starter`: the ShallowEtag filter no longer swallows the body of `forward:`-ed
+
 ## [9.3.0] - 2026-06-09
 ### Changed
 - update jeap-spring-boot-vault-starter from 23.2.0 to 23.3.0
