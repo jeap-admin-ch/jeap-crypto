@@ -6,10 +6,10 @@ the KMS.
 
 ## Backends
 
-| KMS            | Starter                        | Key reference / location                                   |
-|----------------|--------------------------------|------------------------------------------------------------|
+| KMS            | Starter                        | Key reference / location                                          |
+|----------------|--------------------------------|-------------------------------------------------------------------|
 | HashiCorp Vault| `jeap-crypto-vault-starter`    | Transit secrets engine; reference = secret-engine path + key name |
-| AWS KMS        | `jeap-crypto-aws-kms-starter`  | reference = key ARN, alias, alias ARN or key id            |
+| AWS KMS        | `jeap-crypto-aws-kms-starter`  | reference = key ARN, alias, alias ARN or key id                   |
 
 Vault requires the **Transit secrets engine** to be enabled. With a managed Vault (e.g. Managed
 Application Vault), confirm with the provider that Transit is available. The Vault starter expects a
@@ -52,13 +52,13 @@ stored in the [multi-key container format](data-format.md). An escrow key can be
 If the application provides a Micrometer `MeterRegistry` bean (e.g. by adding the
 `jeap-spring-boot-monitoring-starter`), the library exposes:
 
-| Metric                    | Tags                              | Meaning                                                       |
-|---------------------------|-----------------------------------|--------------------------------------------------------------|
-| `jeap_crypto_key_encrypt` | `escrow=true\|false`, `key=<ref>` | Counter: times a key is used for encryption (ignoring caching) |
-| `jeap_crypto_key_decrypt` | `key=<ref>`                       | Counter: times a key is used for decryption (ignoring caching) |
-| `jeap_crypto_noop`        | —                                 | `0`/`1` = jeap-crypto enabled / disabled for the environment   |
-| `cache_size`              | cache `jeap-crypto-encryption-keys` / `jeap-crypto-decryption-keys` | Current number of data keys in the cache |
-| `cache_gets_total`        | same caches, `result=hit\|miss`   | Cache hits (key reuse) and misses (new key fetched from KMS)  |
+| Metric                    | Tags                                                                | Meaning                                                        |
+|---------------------------|---------------------------------------------------------------------|----------------------------------------------------------------|
+| `jeap_crypto_key_encrypt` | `escrow=true\|false`, `key=<ref>`                                   | Counter: times a key is used for encryption (ignoring caching) |
+| `jeap_crypto_key_decrypt` | `key=<ref>`                                                         | Counter: times a key is used for decryption (ignoring caching) |
+| `jeap_crypto_noop`        | —                                                                   | `0`/`1` = jeap-crypto enabled / disabled for the environment   |
+| `cache_size`              | cache `jeap-crypto-encryption-keys` / `jeap-crypto-decryption-keys` | Current number of data keys in the cache                       |
+| `cache_gets_total`        | same caches, `result=hit\|miss`                                     | Cache hits (key reuse) and misses (new key fetched from KMS)   |
 
 ## Related
 

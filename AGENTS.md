@@ -15,7 +15,7 @@ configured wrapping key.
 
 ## Repository layout
 
-```
+```text
 pom.xml                          # Parent POM (packaging=pom); declares the modules below
 jeap-crypto-core/                # Crypto APIs (ch.admin.bit.jeap.crypto.api), AES-GCM engine,
                                  #   container data formats, escrow, key-management abstractions
@@ -64,6 +64,9 @@ The `db` and `s3` helper modules build on the `core` APIs. The `api` package
 
 When changing public behaviour, update the matching focused file under [docs/](docs/) (one topic per
 file) and the documentation index in the README.
+
+Validate that files under `docs/*.md` are valid Markdown compatible with a Docusaurus site. Also
+validate that Mermaid diagrams in the Markdown files use correct Mermaid syntax.
 
 ## Versioning
 
