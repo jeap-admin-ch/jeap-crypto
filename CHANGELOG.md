@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## [9.12.1] - 2026-07-09
+## [Unreleased]
 
 ### Changed
 - Replaced LocalStack with Floci (floci.io) as AWS emulator in the integration tests
