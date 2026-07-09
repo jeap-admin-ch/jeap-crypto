@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [9.12.1] - 2026-07-09
+
+### Changed
+- Replaced LocalStack with Floci (floci.io) as AWS emulator in the integration tests
+
 ## [9.12.0] - 2026-07-09
 ### Changed
 - update jeap-spring-boot-vault-starter from 23.10.2 to 23.11.0

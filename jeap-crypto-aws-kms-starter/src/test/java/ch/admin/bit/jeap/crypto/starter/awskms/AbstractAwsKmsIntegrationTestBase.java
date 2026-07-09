@@ -1,6 +1,7 @@
 package ch.admin.bit.jeap.crypto.starter.awskms;
 
 import ch.admin.bit.jeap.crypto.starter.test.awskms.Application;
+import io.floci.testcontainers.FlociContainer;
 import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeAll;
@@ -11,7 +12,6 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Primary;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
-import org.testcontainers.containers.localstack.LocalStackContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.DockerImageName;
@@ -23,6 +23,8 @@ import software.amazon.awssdk.services.kms.KmsClient;
 import software.amazon.awssdk.services.kms.model.CreateKeyRequest;
 import software.amazon.awssdk.services.kms.model.CreateKeyResponse;
 import software.amazon.awssdk.services.kms.model.KeySpec;
+
+import java.net.URI;
 
 import static ch.admin.bit.jeap.crypto.starter.awskms.AbstractAwsKmsIntegrationTestBase.TestConfig;
 
@@ -36,16 +38,16 @@ abstract class AbstractAwsKmsIntegrationTestBase {
     static String secondTestKeyArn;
 
     @Container
-    static public LocalStackContainer localStack = createLocalStackContainer();
+    static public FlociContainer floci = createFlociContainer();
 
     @TestConfiguration
     static class TestConfig {
         @Bean
         @Primary
         AwsCredentialsProvider awsCredentialsProvider() {
-            // Provide a credentials provider for the local stack AWS simulator for tests
+            // Provide a credentials provider for the floci AWS emulator for tests
             return StaticCredentialsProvider.create(
-                    AwsBasicCredentials.create(localStack.getAccessKey(), localStack.getSecretKey()));
+                    AwsBasicCredentials.create(floci.getAccessKey(), floci.getSecretKey()));
         }
 
         @Bean
@@ -55,12 +57,9 @@ abstract class AbstractAwsKmsIntegrationTestBase {
     }
 
     @SuppressWarnings("resource")
-    private static LocalStackContainer createLocalStackContainer() {
-        return new LocalStackContainer(DockerImageName.parse("localstack/localstack:3.1")
-                .asCompatibleSubstituteFor("localstack/localstack"))
-                .withEnv("DISABLE_EVENTS", "1") // Disable localstack features that require an internet connection
-                .withEnv("SKIP_INFRA_DOWNLOADS", "1")
-                .withEnv("SKIP_SSL_CERT_DOWNLOAD", "1");
+    private static FlociContainer createFlociContainer() {
+        return new FlociContainer(DockerImageName.parse("floci/floci:1.5.31")
+                .asCompatibleSubstituteFor("floci/floci"));
     }
 
     @BeforeAll
@@ -71,20 +70,20 @@ abstract class AbstractAwsKmsIntegrationTestBase {
 
     @DynamicPropertySource
     static void dynamicProperties(DynamicPropertyRegistry registry) {
-        registry.add("jeap.crypto.awskms.region", () -> localStack.getRegion());
-        registry.add("jeap.crypto.awskms.endpoint", () -> localStack.getEndpointOverride(LocalStackContainer.Service.KMS));
+        registry.add("jeap.crypto.awskms.region", () -> floci.getRegion());
+        registry.add("jeap.crypto.awskms.endpoint", () -> floci.getEndpoint());
         registry.add("test-key-arn", () -> testKeyArn);
         registry.add("second-test-key-arn", () -> secondTestKeyArn);
     }
 
     private static String createTestKey() {
-        Region region = Region.of(localStack.getRegion());
+        Region region = Region.of(floci.getRegion());
         AwsCredentialsProvider credentialsProvider = StaticCredentialsProvider.create(
-                AwsBasicCredentials.create(localStack.getAccessKey(), localStack.getSecretKey()));
+                AwsBasicCredentials.create(floci.getAccessKey(), floci.getSecretKey()));
         try (KmsClient kmsClient = KmsClient.builder()
                 .region(region)
                 .credentialsProvider(credentialsProvider)
-                .endpointOverride(localStack.getEndpointOverride(LocalStackContainer.Service.KMS))
+                .endpointOverride(URI.create(floci.getEndpoint()))
                 .build()) {
 
             CreateKeyResponse response = kmsClient.createKey(CreateKeyRequest.builder()

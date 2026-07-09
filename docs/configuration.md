@@ -48,7 +48,7 @@ jeap:
 | Property                                            | Mandatory | Default                  | Description                                                                               |
 |-----------------------------------------------------|-----------|--------------------------|-------------------------------------------------------------------------------------------|
 | `region`                                            | Yes\*     | env var `AWS_REGION`     | AWS region for KMS. Required if `AWS_REGION` is not set                                   |
-| `endpoint`                                          | No        | —                        | Override the KMS endpoint URI (e.g. for LocalStack)                                       |
+| `endpoint`                                          | No        | —                        | Override the KMS endpoint URI (e.g. for a local AWS emulator like Floci)                  |
 | `default-escrow-key.key-type`                       | No        | `RSA_4096`               | Escrow key type: `RSA_4096` or `NONE`                                                     |
 | `default-escrow-key.public-key`                     | Yes\*     | —                        | X.509 PEM public key of the escrow key. Not required if the escrow `key-type` is `NONE`   |
 | `default-encryption-key-cache-expiry-duration`      | No        | `1h`                     | How long data keys are reused for **encryption**                                          |

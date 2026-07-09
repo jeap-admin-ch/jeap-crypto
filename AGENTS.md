@@ -44,7 +44,7 @@ The `db` and `s3` helper modules build on the `core` APIs. The `api` package
 ```
 
 - Parent: `ch.admin.bit.jeap:jeap-internal-spring-boot-parent` (Spring Boot 4 aligned).
-- Integration tests use Testcontainers (Vault, LocalStack for AWS KMS).
+- Integration tests use Testcontainers (Vault, Floci for AWS KMS).
 - Spring Boot 3 maintenance happens on the `release/springboot3` branch; `master` targets Spring Boot 4.
 
 ## jEAP conventions

@@ -9,8 +9,7 @@ import ch.admin.bit.jeap.crypto.internal.core.keymanagement.NoMetricsService;
 import ch.admin.bit.jeap.crypto.internal.core.model.DataKeyPair;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.testcontainers.containers.localstack.LocalStackContainer;
-import org.testcontainers.containers.localstack.LocalStackContainer.Service;
+import io.floci.testcontainers.FlociContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.DockerImageName;
@@ -26,6 +25,7 @@ import software.amazon.awssdk.services.kms.model.CreateKeyRequest;
 import software.amazon.awssdk.services.kms.model.CreateKeyResponse;
 import software.amazon.awssdk.services.kms.model.KeySpec;
 
+import java.net.URI;
 import java.security.KeyPairGenerator;
 import java.security.PublicKey;
 import java.util.Map;
@@ -36,12 +36,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 class AwsKeyManagementServiceTest {
 
     @Container
-    private static final LocalStackContainer localStack =
-            new LocalStackContainer(DockerImageName.parse("localstack/localstack:3.1")
-                    .asCompatibleSubstituteFor("localstack/localstack"))
-                    .withEnv("DISABLE_EVENTS", "1") // Disable localstack features that require an internet connection
-                    .withEnv("SKIP_INFRA_DOWNLOADS", "1")
-                    .withEnv("SKIP_SSL_CERT_DOWNLOAD", "1");
+    private static final FlociContainer floci =
+            new FlociContainer(DockerImageName.parse("floci/floci:1.5.31")
+                    .asCompatibleSubstituteFor("floci/floci"));
     private AwsKeyManagementService awsKeyManagementService;
     private String keyArn;
 
@@ -65,14 +62,14 @@ class AwsKeyManagementServiceTest {
     @BeforeEach
     void prepareKms() throws Exception {
         AwsCredentialsProvider credentialsProvider = StaticCredentialsProvider.create(
-                AwsBasicCredentials.create(localStack.getAccessKey(), localStack.getSecretKey()));
-        Region region = Region.of(localStack.getRegion());
+                AwsBasicCredentials.create(floci.getAccessKey(), floci.getSecretKey()));
+        Region region = Region.of(floci.getRegion());
         SdkHttpClient sdkHttpClient = UrlConnectionHttpClient.builder()
                 .proxyConfiguration(ProxyConfiguration.builder()
                         .useSystemPropertyValues(false)
                         .useEnvironmentVariablesValues(false)
                         .build()).build();
-        AwsKmsClient kmsClient = new AwsKmsClient(credentialsProvider, region, localStack.getEndpointOverride(Service.KMS), sdkHttpClient);
+        AwsKmsClient kmsClient = new AwsKmsClient(credentialsProvider, region, URI.create(floci.getEndpoint()), sdkHttpClient);
         keyArn = createTestKey(credentialsProvider, region);
         Map<KeyReference, EscrowKeyConfig> escrowKeys = Map.of(
                 new KeyReference(keyArn), new EscrowKeyConfig(EscrowKeyType.RSA_4096, generatePublicKey()));
@@ -98,7 +95,7 @@ class AwsKeyManagementServiceTest {
                                 .useEnvironmentVariablesValues(false)
                                 .build()))
                 .credentialsProvider(credentialsProvider)
-                .endpointOverride(localStack.getEndpointOverride(Service.KMS))
+                .endpointOverride(URI.create(floci.getEndpoint()))
                 .build()) {
 
             CreateKeyResponse response = kmsClient.createKey(CreateKeyRequest.builder()
