@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [9.15.0] - 2026-07-13
+
+### Changed
+
+- Update parent from 8.3.4 to 8.4.0
+
 ## [9.14.0] - 2026-07-09
 ### Changed
 - update jeap-spring-boot-vault-starter from 23.12.0 to 23.13.0
