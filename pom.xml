@@ -39,7 +39,7 @@
     <properties>
         <maven.javadoc.skip>false</maven.javadoc.skip>
         <!-- Used for integration testing with the starters -->
-        <jeap-spring-boot-vault-starter.version>23.13.0</jeap-spring-boot-vault-starter.version>
+        <jeap-spring-boot-vault-starter.version>23.14.0</jeap-spring-boot-vault-starter.version>
         <testcontainers.version>1.21.4</testcontainers.version>
         <testcontainers-floci.version>2.11.0</testcontainers-floci.version>
         <guava-testlib.version>33.6.0-jre</guava-testlib.version>
