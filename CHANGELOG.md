@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [10.6.1] - 2026-07-30
+### Changed
+- update jeap-spring-boot-vault-starter from 24.6.0 to 24.6.1
+- `ReadReplicaAwareTransactionManager`: Fixed a race condition in the lazy creation of the transaction counters.
+  Transactions started concurrently while the counters were being created could observe a partially initialized
+  state and fail with a `NullPointerException`, e.g. when kafka messages are consumed right after startup. Both
+  counters are now published together. In addition, a failure to resolve the `MeterRegistry` no longer fails the
+  transaction: it is logged once, and the counters are created on a subsequent transaction.
+
 ## [10.6.0] - 2026-07-28
 
 ### Changed
