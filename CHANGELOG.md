@@ -9,9 +9,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [10.10.0] - 2026-08-10
 
 ### Changed
-
 - Update parent from 8.7.0 to 8.7.1
 - update testcontainers-floci from 2.11.0 to 2.13.0
+- update jeap-spring-boot-vault-starter from 24.9.0 to 24.10.0
+- update aws-advanced-jdbc-wrapper from 4.0.1 to 4.3.0
+- update springdoc-openapi from 3.0.3 to 3.1.0
 
 ## [10.9.0] - 2026-08-08
 
