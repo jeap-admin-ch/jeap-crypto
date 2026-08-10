@@ -11,6 +11,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 - Update parent from 8.7.0 to 8.7.1
+- update testcontainers-floci from 2.11.0 to 2.13.0
 
 ## [10.9.0] - 2026-08-08
 
