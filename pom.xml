@@ -40,9 +40,6 @@
         <maven.javadoc.skip>false</maven.javadoc.skip>
         <!-- Used for integration testing with the starters -->
         <jeap-spring-boot-vault-starter.version>24.12.0</jeap-spring-boot-vault-starter.version>
-        <testcontainers.version>1.21.4</testcontainers.version>
-        <testcontainers-floci.version>2.13.0</testcontainers-floci.version>
-        <guava-testlib.version>33.6.0-jre</guava-testlib.version>
         <ryuk.container.image>testcontainers/ryuk:0.11.0</ryuk.container.image>
         <!-- Disable unhelpful sonar warnings for mutable field values -->
         <sonar.issue.ignore.multicriteria>e1</sonar.issue.ignore.multicriteria>
@@ -106,11 +103,6 @@
                 <version>${project.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>io.floci</groupId>
-                <artifactId>testcontainers-floci</artifactId>
-                <version>${testcontainers-floci.version}</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
