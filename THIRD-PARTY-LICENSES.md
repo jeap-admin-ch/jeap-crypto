@@ -8,12 +8,9 @@ Third-party dependencies grouped by their license type (see [pom.xml](/pom.xml) 
 Apache License Version 2.0
 -------------------------------
 
- * ch.admin.bit.jeap:jeap-crypto-aws-kms - [ch.admin.bit.jeap:jeap-crypto-aws-kms](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-aws-kms)
- * ch.admin.bit.jeap:jeap-crypto-aws-kms-starter - [ch.admin.bit.jeap:jeap-crypto-aws-kms-starter](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-aws-kms-starter)
  * ch.admin.bit.jeap:jeap-crypto-core - [ch.admin.bit.jeap:jeap-crypto-core](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-core)
  * ch.admin.bit.jeap:jeap-crypto-spring - [ch.admin.bit.jeap:jeap-crypto-spring](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-spring)
  * ch.admin.bit.jeap:jeap-crypto-vault - [ch.admin.bit.jeap:jeap-crypto-vault](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-vault)
- * ch.admin.bit.jeap:jeap-crypto-vault-starter - [ch.admin.bit.jeap:jeap-crypto-vault-starter](https://github.com/jeap-admin-ch/jeap-crypto/tree/main/jeap-crypto-vault-starter)
  * ch.admin.bit.jeap:jeap-spring-boot-vault-starter - [ch.admin.bit.jeap:jeap-spring-boot-vault-starter](https://github.com/jeap-admin-ch/jeap-spring-boot-starters/tree/main/jeap-spring-boot-vault-starter)
  * ClassMate - [com.fasterxml:classmate](https://github.com/FasterXML/java-classmate)
  * Jackson-annotations - [com.fasterxml.jackson.core:jackson-annotations](https://github.com/FasterXML/jackson)
@@ -30,6 +27,8 @@ Apache License Version 2.0
  * json-path - [com.jayway.jsonpath:json-path](https://github.com/jayway/JsonPath)
  * JSON library from Android SDK - [com.vaadin.external.google:android-json](http://developer.android.com/sdk)
  * HikariCP - [com.zaxxer:HikariCP](https://github.com/brettwooldridge/HikariCP)
+ * Apache Commons Codec - [commons-codec:commons-codec](https://commons.apache.org/proper/commons-codec/)
+ * Apache Commons IO - [commons-io:commons-io](https://commons.apache.org/proper/commons-io/)
  * Apache Commons Logging - [commons-logging:commons-logging](https://commons.apache.org/proper/commons-logging/)
  * micrometer-commons - [io.micrometer:micrometer-commons](https://github.com/micrometer-metrics/micrometer)
  * micrometer-core - [io.micrometer:micrometer-core](https://github.com/micrometer-metrics/micrometer)
@@ -42,6 +41,7 @@ Apache License Version 2.0
  * ASM based accessors helper used by json-smart - [net.minidev:accessors-smart](https://urielch.github.io/)
  * JSON Small and Fast Parser - [net.minidev:json-smart](https://urielch.github.io/)
  * Apache Commons Compress - [org.apache.commons:commons-compress](https://commons.apache.org/proper/commons-compress/)
+ * Apache Commons Lang - [org.apache.commons:commons-lang3](https://commons.apache.org/proper/commons-lang/)
  * Apache HttpClient - [org.apache.httpcomponents.client5:httpclient5](https://hc.apache.org/httpcomponents-client-5.5.x/5.6.1/httpclient5/)
  * Apache HttpComponents Core HTTP/1.1 - [org.apache.httpcomponents.core5:httpcore5](https://hc.apache.org/httpcomponents-core-5.4.x/5.4.2/httpcore5/)
  * Apache HttpComponents Core HTTP/2 - [org.apache.httpcomponents.core5:httpcore5-h2](https://hc.apache.org/httpcomponents-core-5.4.x/5.4.2/httpcore5-h2/)
@@ -224,9 +224,9 @@ MIT License
  * JUL to SLF4J bridge - [org.slf4j:jul-to-slf4j](http://www.slf4j.org)
  * SLF4J API Module - [org.slf4j:slf4j-api](http://www.slf4j.org)
  * SLF4J Simple Provider - [org.slf4j:slf4j-simple](http://www.slf4j.org)
- * Testcontainers :: JUnit Jupiter Extension - [org.testcontainers:junit-jupiter](https://java.testcontainers.org)
  * Testcontainers Core - [org.testcontainers:testcontainers](https://java.testcontainers.org)
- * Testcontainers :: Vault - [org.testcontainers:vault](https://java.testcontainers.org)
+ * Testcontainers :: JUnit Jupiter Extension - [org.testcontainers:testcontainers-junit-jupiter](https://java.testcontainers.org)
+ * Testcontainers :: Vault - [org.testcontainers:testcontainers-vault](https://java.testcontainers.org)
 
 Mozilla Public License, Version 2.0
 -------------------------------
