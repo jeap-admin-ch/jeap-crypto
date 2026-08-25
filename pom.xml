@@ -27,7 +27,7 @@
 
     <artifactId>jeap-crypto</artifactId>
     <name>${project.groupId}:${project.artifactId}</name>
-    <version>10.19.1-SNAPSHOT</version>
+    <version>10.19.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <parent>
