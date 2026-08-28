@@ -6,7 +6,7 @@
     <parent>
         <groupId>ch.admin.bit.jeap</groupId>
         <artifactId>jeap-crypto</artifactId>
-        <version>10.21.1-SNAPSHOT</version>
+        <version>10.21.2-SNAPSHOT</version>
     </parent>
 
     <artifactId>jeap-crypto-s3</artifactId>
@@ -24,6 +24,10 @@
             <artifactId>s3</artifactId>
             <exclusions>
                 <!-- url-connection-client is added as the HTTP client to use, which minimizes the amount of dependencies -->
+                <exclusion>
+                    <groupId>software.amazon.awssdk</groupId>
+                    <artifactId>apache-client</artifactId>
+                </exclusion>
                 <exclusion>
                     <groupId>software.amazon.awssdk</groupId>
                     <artifactId>apache5-client</artifactId>
