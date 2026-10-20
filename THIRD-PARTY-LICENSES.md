@@ -116,6 +116,7 @@ Apache License Version 2.0
  * AWS Java SDK :: Checksums SPI - [software.amazon.awssdk:checksums-spi](https://aws.amazon.com/sdkforjava)
  * AWS Java SDK :: AWS CRT Core - [software.amazon.awssdk:crt-core](https://aws.amazon.com/sdkforjava)
  * AWS Java SDK :: Endpoints SPI - [software.amazon.awssdk:endpoints-spi](https://aws.amazon.com/sdkforjava/core/endpoints-spi)
+ * AWS Java SDK :: EventStream - [software.amazon.awssdk:eventstream](https://aws.amazon.com/sdkforjava)
  * AWS Java SDK :: HTTP Auth - [software.amazon.awssdk:http-auth](https://aws.amazon.com/sdkforjava)
  * AWS Java SDK :: HTTP Auth AWS - [software.amazon.awssdk:http-auth-aws](https://aws.amazon.com/sdkforjava)
  * AWS Java SDK :: HTTP Auth Event Stream - [software.amazon.awssdk:http-auth-aws-eventstream](https://aws.amazon.com/sdkforjava)
@@ -137,7 +138,6 @@ Apache License Version 2.0
  * AWS Java SDK :: Utilities - [software.amazon.awssdk:utils](https://aws.amazon.com/sdkforjava/utils)
  * AWS Java SDK :: Utils Lite - [software.amazon.awssdk:utils-lite](https://aws.amazon.com/sdkforjava)
  * Amazon Corretto Crypto Provider - [software.amazon.cryptools:AmazonCorrettoCryptoProvider](https://github.com/corretto/amazon-corretto-crypto-provider)
- * AWS Event Stream - [software.amazon.eventstream:eventstream](https://github.com/awslabs/aws-eventstream-java)
  * Jackson-core - [tools.jackson.core:jackson-core](https://github.com/FasterXML/jackson-core)
  * jackson-databind - [tools.jackson.core:jackson-databind](https://github.com/FasterXML/jackson)
 
@@ -217,7 +217,8 @@ LGPL-2.1-or-later
 MIT License
 -------------------------------
 
- * Testcontainers Floci - [io.floci:testcontainers-floci](https://github.com/floci-io/testcontainers-floci/testcontainers-floci)
+ * Testcontainers Floci AWS - [io.floci:testcontainers-floci-aws](https://github.com/floci-io/testcontainers-floci/testcontainers-floci-aws)
+ * Testcontainers Floci Core - [io.floci:testcontainers-floci-core](https://github.com/floci-io/testcontainers-floci/testcontainers-floci-core)
  * mockito-core - [org.mockito:mockito-core](https://github.com/mockito/mockito)
  * mockito-junit-jupiter - [org.mockito:mockito-junit-jupiter](https://github.com/mockito/mockito)
  * Project Lombok - [org.projectlombok:lombok](https://projectlombok.org)
