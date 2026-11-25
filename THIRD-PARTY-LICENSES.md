@@ -104,7 +104,7 @@ Apache License Version 2.0
  * spring-security-crypto - [org.springframework.security:spring-security-crypto](https://spring.io/projects/spring-security)
  * Spring Vault Core - [org.springframework.vault:spring-vault-core](https://projects.spring.io/spring-vault/spring-vault-core/)
  * org.xmlunit:xmlunit-core - [org.xmlunit:xmlunit-core](https://www.xmlunit.org/)
- * SnakeYAML - [org.yaml:snakeyaml](https://bitbucket.org/snakeyaml/snakeyaml)
+ * SnakeYAML - [org.yaml:snakeyaml](https://codeberg.org/snakeyaml/snakeyaml)
  * AWS Java SDK :: Annotations - [software.amazon.awssdk:annotations](https://aws.amazon.com/sdkforjava/core/annotations)
  * AWS Java SDK :: Arns - [software.amazon.awssdk:arns](https://aws.amazon.com/sdkforjava)
  * AWS Java SDK :: Auth - [software.amazon.awssdk:auth](https://aws.amazon.com/sdkforjava)
